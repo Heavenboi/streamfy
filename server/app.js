@@ -48,6 +48,8 @@ app.get('/video/:id/data', function(req, res) {
   res.json(videos[id]);
 });
 
+app.get('/', (req, res)=> res.send ("Home!"))
+
 app.get('/video/:id', function(req, res) {
   const path = `assets/${req.params.id}.mp4`;
   const stat = fs.statSync(path);
