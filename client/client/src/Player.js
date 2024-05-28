@@ -25,5 +25,5 @@ return (
 </header>
 </div>
 )
-}
+
 export default App
