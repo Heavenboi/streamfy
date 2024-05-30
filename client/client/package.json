@@ -12,16 +12,16 @@
     "react-scripts": "^5.0.1",
     "typescript": "^5.4.5"
   },
-  "devDependencies": {}, 
+  "devDependencies": {},
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
- "homepage": "https://Heavenboi.github.io/streamfy"
+  "homepage": "https://Heavenboi.github.io/streamfy",
   "keywords": [],
   "author": "",
   "license": "ISC",
