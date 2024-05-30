@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/streamfy/static/css/main.b00c9fff.css",
+    "main.js": "/streamfy/static/js/main.894e8d84.js",
+    "index.html": "/streamfy/index.html",
+    "main.b00c9fff.css.map": "/streamfy/static/css/main.b00c9fff.css.map",
+    "main.894e8d84.js.map": "/streamfy/static/js/main.894e8d84.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b00c9fff.css",
+    "static/js/main.894e8d84.js"
+  ]
+}
