@@ -1,3 +1,5 @@
+/* src/App.css */
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.video-player {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 2px solid #61dafb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comment-list {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.comment {
+  background-color: #383c42;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment p {
+  margin: 0;
+}
+
+textarea {
+  width: 80%;
+  max-width: 800px;
+  height: 100px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px solid #61dafb;
+  border-radius: 5px;
+  background-color: #383c42;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+.like-button {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.like-button button {
+  margin-left: 10px;
 }
