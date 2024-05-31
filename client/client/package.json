@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "16": "^0.0.2",
     "ajv": "^8.14.0",
     "axios": "^1.7.2",
     "react": "^18.3.1",
@@ -21,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
     "dev": "react-scripts start"
   },
   "homepage": "https://Heavenboi.github.io/streamfy",
