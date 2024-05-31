@@ -22,6 +22,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+    "dev": "react-scripts start"
   },
   "homepage": "https://Heavenboi.github.io/streamfy",
   "keywords": [],
