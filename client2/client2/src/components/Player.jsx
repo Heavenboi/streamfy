@@ -1,4 +1,3 @@
-// src/Player.js
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import CommentList from './CommentList';
@@ -12,24 +11,24 @@ const Player = () => {
   const [error, setError] = useState(null);
   const userId = 'user-id'; // Replace with actual user ID logic
 
-  // useEffect(() => {
-  //   const fetchVideoData = async () => {
-  //     try {
-  //       const res = await fetch(`https://streamfy-xiyz.onrender.com/videos/${id}/data`);
-  //       if (!res.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const data = await res.json();
-  //       setVideoData(data);
-  //     } catch (error) {
-  //       setError(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchVideoData = async () => {
+      try {
+        const response = await fetch(`https://streamfy-xiyz.onrender.com/videos/${id}`); // Corrected fetch URL
+        if (!response.ok) {
+          throw new Error('Failed to fetch video data.');
+        }
+        const data = await response.json();
+        setVideoData(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   fetchVideoData();
-  // }, [id]);
+    fetchVideoData();
+  }, [id]);
 
   if (loading) {
     return <div>Loading...</div>;
