@@ -13,7 +13,7 @@ const Player = () => {
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/video/${id}/data`);
+        const res = await fetch(`https://streamfy-xiyz.onrender.com/videos/${id}/data`);
         const data = await res.json();
         setVideoData(data);
       } catch (error) {
@@ -28,7 +28,7 @@ const Player = () => {
     <div className="App">
       <header className="App-header">
         <video controls muted autoPlay>
-          <source src={`http://localhost:4000/video/${id}`} type="video/mp4" />
+          <source src={`https://streamfy-xiyz.onrender.com/videos/${id}`} type="video/mp4" />
         </video>
         <LikeButton videoId={id} userId={userId} />
         <CommentList videoId={id} />

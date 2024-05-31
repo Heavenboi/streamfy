@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://streamfy-xiyz.onrender.com';
 
 export const fetchVideos = () => axios.get(`${API_URL}/videos`);
 export const fetchVideoById = (id) => axios.get(`${API_URL}/videos/${id}`);
