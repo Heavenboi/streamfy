@@ -12,7 +12,8 @@ const Main = () => {
 
     <div> 
     <h1> PlayList</h1>
-    <div> </div>
+    <div> 
+    <img src:  /></div>
     </div>
     </section>
   )
