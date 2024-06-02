@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <footer style={footerStyle}>
-      <p>&copy; {currentYear}, Your Company. All rights reserved.</p>
+      <p>&copy; {currentYear}, Streamfy. All rights reserved.</p>
     </footer>
   );
 }
