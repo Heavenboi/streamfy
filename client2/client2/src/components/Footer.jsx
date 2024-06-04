@@ -13,8 +13,8 @@ function Footer() {
 
 // Styles
 const footerStyle = {
-  background: '#333',
-  color: '#fff',
+  background: '#008b8b',
+  color: '#f0fff0',
   textAlign: 'center',
   padding: '10px 0',
 };

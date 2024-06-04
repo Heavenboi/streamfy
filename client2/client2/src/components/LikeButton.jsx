@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
- import { toggleLike, fetchLikes } from '../services/api';
+import { toggleLike, fetchLikes } from '../services/api';
+import { FaHeart } from 'react-icons/fa'; // Ensure the package is installed
 
 const LikeButton = ({ videoId, userId }) => {
   const [likes, setLikes] = useState(0);
   const [liked, setLiked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [clickCount, setClickCount] = useState(0); // State to track the number of clicks
 
   useEffect(() => {
     const loadLikes = async () => {
@@ -22,9 +24,12 @@ const LikeButton = ({ videoId, userId }) => {
 
   const handleLikeToggle = async () => {
     setLoading(true);
+    setClickCount(clickCount + 1); // Increment the click count
+
     try {
       // Optimistically update the UI
-      setLikes(likes + (liked ? -1 : 1));
+      const newLikes = liked ? likes - 1 : likes + 1;
+      setLikes(newLikes);
       setLiked(!liked);
 
       const response = await toggleLike(videoId, userId);
@@ -34,7 +39,8 @@ const LikeButton = ({ videoId, userId }) => {
     } catch (error) {
       console.error('Error toggling like:', error);
       // Rollback UI update on error
-      setLikes(likes - (liked ? -1 : 1));
+      const rollbackLikes = liked ? likes + 1 : likes - 1;
+      setLikes(rollbackLikes);
       setLiked(liked);
     } finally {
       setLoading(false);
@@ -42,9 +48,14 @@ const LikeButton = ({ videoId, userId }) => {
   };
 
   return (
-    <button onClick={handleLikeToggle} disabled={loading}>
-      {liked ? 'Unlike' : 'Like'} ({likes})
-    </button>
+    <div>
+      <button onClick={handleLikeToggle} disabled={loading} style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+        {liked ? <FaHeart color="red" /> : <FaHeart />}
+        <span style={{ position: 'absolute', right: '-10px', fontSize: '0.8rem', color: 'black' }}>{likes}</span>
+      </button>
+      {/* Hide or remove this paragraph if not needed */}
+      <p style={{ display: 'none' }}>Like button clicked {clickCount} times</p>
+    </div>
   );
 };
 

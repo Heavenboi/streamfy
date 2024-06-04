@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { fetchComments } from '../services/api';
 
-const CommentList = ({ videoId }) => {
+const CommentList = ({ videoId, newComment }) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,6 +25,12 @@ const CommentList = ({ videoId }) => {
     fetchCommentsMemoized();
   }, [fetchCommentsMemoized]);
 
+  useEffect(() => {
+    if (newComment) {
+      setComments((prevComments) => [newComment, ...prevComments]);
+    }
+  }, [newComment]);
+
   if (loading) {
     return <div>Loading comments...</div>;
   }
@@ -35,7 +41,7 @@ const CommentList = ({ videoId }) => {
 
   return (
     <div className="comment-list">
-      {comments.map(comment => (
+      {comments.map((comment) => (
         <div key={comment.id} className="comment">
           <p><strong>{comment.author}:</strong> {comment.text}</p>
         </div>

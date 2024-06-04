@@ -1,10 +1,11 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { postComment } from '../services/api';
 
-const AddComment = ({ videoId }) => {
+const AddComment = ({ videoId, onCommentAdded }) => {
   const [commentText, setCommentText] = useState('');
+  const [author, setAuthor] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,9 +13,11 @@ const AddComment = ({ videoId }) => {
     setError(null);
 
     try {
-      await postComment(videoId, { text: commentText });
+      const newComment = { text: commentText, author };
+      await postComment(videoId, newComment);
       setCommentText('');
-      // Optionally refresh the comment list or notify parent component
+      setAuthor('');
+      onCommentAdded(newComment); // Notify the parent component of the new comment
     } catch (err) {
       setError('Failed to post comment. Please try again.');
     } finally {
@@ -24,6 +27,16 @@ const AddComment = ({ videoId }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="author">Name:</label>
+        <input
+          id="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          placeholder="Your name"
+          required
+        />
+      </div>
       <div>
         <label htmlFor="comment">Add a comment:</label>
         <textarea
