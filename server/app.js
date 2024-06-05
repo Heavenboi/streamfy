@@ -7,7 +7,7 @@ const app = express();
 const videos = [
   {
     id: 0,
-    poster: '/video/0/poster',
+    poster: 'assets/sample.mp4',
     duration: '3 mins',
     name: 'Sample 1'
   },
@@ -48,7 +48,7 @@ app.get('/video/:id/data', function(req, res) {
   res.json(videos[id]);
 });
 
-app.get('/', (req, res)=> res.send ("Home!"))
+app.get('/', (req, res)=> res.send ("Hello, Home!"))
 
 app.get('/video/:id', function(req, res) {
   const path = `assets/${req.params.id}.mp4`;
