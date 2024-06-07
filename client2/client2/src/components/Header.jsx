@@ -1,41 +1,44 @@
 import React, { useState } from 'react';
-import { GrClose } from "react-icons/gr";
-import { GiHamburgerMenu } from "react-icons/gi";
-import SignInForm from './SignInForm';
-import SignUpForm from './SignUpForm';
+import { Link } from 'react-router-dom';
+import { GrClose } from 'react-icons/gr';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import '../styles/Header.css';
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+
+  const toggleMenu = () => setShowMenu(!showMenu);
+  const closeMenu = () => setShowMenu(false);
 
   return (
-    <header className="flex flex-row items-center justify-between sm:justify-around p-2 border-b-2 bg-gray-100">
-      <a href="/" title="Logo">
-        <img src='./src/assets/logo192.png' alt='Logo' style={{ width: 40, height: 40 }} />
-      </a>
-      <nav className="hidden sm:flex justify-between items-center gap-4 font-semibold">
+    <header className="header">
+      <Link to="/" title="Logo" className="logo-link">
+        <img src='./src/assets/logo192.png' alt='Logo' className="logo" />
+      </Link>
+      <nav className="nav-desktop">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
       </nav>
-      <nav className="sm:hidden flex flex-col items-end gap-1 font-semibold">
+      <div className="nav-mobile">
         <button
-          onClick={() => setShowMenu(!showMenu)}
-          className="sm:hidden font-bold text-xl hover:text-gray-500"
-          style={{ fontSize: 24, padding: 12 }}
+          onClick={toggleMenu}
+          className="menu-button"
+          aria-label="Toggle menu"
         >
           {showMenu ? <GrClose /> : <GiHamburgerMenu />}
         </button>
         {showMenu && (
           <ul className="menu-container">
-            <a href="#" className="hover:text-gray-500 hover:bg-gray-100 py-2 px-4 rounded">Home</a>
-            <a href="#" className="hover:text-gray-500 hover:bg-gray-100 py-2 px-4 rounded">About</a>
-            <a href="#" className="hover:text-gray-500 hover:bg-gray-100 py-2 px-4 rounded">Contact</a>
+            <li><Link to="/" className="menu-item" onClick={closeMenu}>Home</Link></li>
+            <li><Link to="/about" className="menu-item" onClick={closeMenu}>About</Link></li>
+            <li><Link to="#" className="menu-item" onClick={closeMenu}>Contact</Link></li>
           </ul>
         )}
-      </nav>
-      <button onClick={() => setShowSignIn(!showSignIn)}>Sign In</button>
-      <button onClick={() => setShowSignUp(!showSignUp)}>Sign Up</button>
-      {showSignIn && <SignInForm />}
-      {showSignUp && <SignUpForm />}
+      </div>
+      <div className="auth-buttons">
+        <Link to="/signin" className="auth-link" onClick={closeMenu}>Sign In</Link>
+        <Link to="/signup" className="auth-link" onClick={closeMenu}>Sign Up</Link>
+      </div>
     </header>
   );
 }
