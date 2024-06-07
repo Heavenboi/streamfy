@@ -1,48 +1,75 @@
-/* About.css */
+/* Root Variables */
+:root {
+  --font-family: 'Arial, sans-serif';
+  --color-primary: #0077cc;
+  --color-text: #333;
+  --color-background: #c00f0f;
+  --spacing-base: 16px;
+  --spacing-small: 8px;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+}
+
+/* General Styles */
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
 
 .about-container {
-  padding: 16px;
-  max-width: 960px;
+  padding: var(--spacing-base);
+  max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.introduction, .features, .development-story, .team-credits {
-  margin-bottom: 24px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+h1, h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-small);
 }
 
 p, ul {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  margin-bottom: var(--spacing-base);
 }
 
 ul {
   list-style-type: disc;
-  padding-left: 20px;
-  margin-bottom: 16px;
+  padding-left: var(--spacing-base);
 }
 
-ul ul {
-  list-style-type: circle;
-  padding-left: 20px;
-  margin-bottom: 0;
+/* Image Styles */
+.about-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-top: var(--spacing-base);
+  transition: transform var(--transition-speed);
 }
 
-ul li {
-  margin-bottom: 7px;
+.about-image:hover {
+  transform: scale(1.05);
 }
 
-strong {
-  font-weight: 600;
+/* Team Section Styles */
+.team-group {
+  margin-bottom: var(--spacing-base);
+}
+
+.team-group h3 {
+  margin-bottom: var(--spacing-small);
+}
+
+.team-group ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: var(--spacing-small);
+  }
 }
