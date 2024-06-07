@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/About.css';
+import aboutImage from '../assets/about-image.jpg'; 
 
 function About() {
   return (
@@ -10,6 +11,9 @@ function About() {
           <p>
             Welcome to <strong>Streamfy</strong> - your gateway to easy learning and premium entertainment. Developed as the final project for cohort 15 students of ALX SE, Streamfy combines a vast library of educational videos with top-tier entertainment, all within a user-friendly platform.
           </p>
+        </div>
+        <div className="image-container">
+          <img src={aboutImage} alt="About Streamfy" width="575" height="325" />
         </div>
       </section>
 
